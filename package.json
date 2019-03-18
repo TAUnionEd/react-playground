@@ -1,0 +1,16 @@
+{
+  "name": "react-playground",
+  "version": "1.0.0",
+  "description": "A react playground",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+  },
+  "author": "TAUnionEd",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
