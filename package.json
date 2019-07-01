@@ -4,7 +4,8 @@
   "description": "A react playground",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config webpack.develop.js --progress"
+    "start": "webpack-dev-server --config webpack.develop.js --progress",
+    "probe": "webpack-dev-server --config webpack.probe.js --progres"
   },
   "author": "TAUnionEd",
   "license": "ISC",

@@ -1,0 +1,7 @@
+.probe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+  -webkit-user-select: none;
+}
