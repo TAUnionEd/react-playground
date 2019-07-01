@@ -15,6 +15,13 @@ class SourceProbe extends Component {
       <view className="probe-container">
         <view className="count">{this.state.count}</view>
         <view className="counter" onClick={this.onClickCounter}>Count!</view>
+        <view className="boxes">
+          {
+            Array(this.state.count).fill(null).map(() => {
+              return <view className="box" />
+            })
+          }
+        </view>
       </view>
     );
   }

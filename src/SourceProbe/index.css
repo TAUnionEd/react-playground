@@ -5,3 +5,19 @@
   width: 15vw;
   -webkit-user-select: none;
 }
+
+.boxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.box {
+  flex-shrink: 1;
+  height: 35px;
+  width: 35px;
+  margin: 10px;
+  background-color: chocolate;
+}
+
