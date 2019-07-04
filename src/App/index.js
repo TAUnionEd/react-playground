@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Home from './Home';
+import TableDemo from './TableDemo';
 
 class App extends Component {
   render = () => {
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <Switch>
         <Route path="/home" component={Home} />
+        <Route path="/table-demo" component={TableDemo} />
         <Redirect to="/home" />
       </Switch>
     );
