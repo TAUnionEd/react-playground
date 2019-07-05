@@ -12,17 +12,25 @@ class SourceProbe extends Component {
 
   render = () => {
     return (
-      <view className="probe-container">
-        <view className="count">{this.state.count}</view>
-        <view className="counter" onClick={this.onClickCounter}>Count!</view>
-        <view className="boxes">
+      <div
+        key="probe"
+        id="probe"
+        ref={(ref) => { this.probeRef = ref; }}
+        className="probe-container"
+        onClick={() => {}}
+      >
+        Current
+        { (() => { return ' Count' })() }
+        <div className="count">{this.state.count}</div>
+        <div className="counter" onClick={this.onClickCounter}>Count!</div>
+        <div className="boxes">
           {
             Array(this.state.count).fill(null).map(() => {
-              return <view className="box" />
+              return <div className="box" />
             })
           }
-        </view>
-      </view>
+        </div>
+      </div>
     );
   }
 

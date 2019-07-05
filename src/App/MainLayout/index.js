@@ -7,9 +7,9 @@ import * as actions from './state';
 class MainLayout extends Component {
   render = () => {
     return (
-      <view>
+      <div>
         <h2>MainLayoutPage</h2>
-      </view>
+      </div>
     );
   }
 }

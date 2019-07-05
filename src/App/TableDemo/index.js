@@ -68,10 +68,10 @@ const TableData = [{
 class TableDemo extends Component {
   render = () => {
     return (
-      <view>
+      <div>
         <h2>TableDemoPage</h2>
         <Table columns={Columns} dataSource={TableData} />
-      </view>
+      </div>
     );
   }
 }
