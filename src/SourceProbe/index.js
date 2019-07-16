@@ -6,36 +6,54 @@ class SourceProbe extends Component {
     super(props)
 
     this.state = {
-      count: 0,
+      count: 1,
     }
   }
 
   render = () => {
     return (
-      <div
-        key="probe"
-        id="probe"
-        ref={(ref) => { this.probeRef = ref; }}
-        className="probe-container"
-        onClick={() => {}}
-      >
-        Current
-        { (() => { return ' Count' })() }
-        <div className="count">{this.state.count}</div>
-        <div className="counter" onClick={this.onClickCounter}>Count!</div>
+      <div className="probe-container">
+      Current Count
+      <div className="count" onClick={this.onClickCount}>{this.state.count}</div>
+      <div className="counter" onClick={this.onClickCounter}>Count!</div>
         <div className="boxes">
-          {
-            Array(this.state.count).fill(null).map(() => {
-              return <div className="box" />
-            })
-          }
+          {this.renderBoxes()}
         </div>
       </div>
     );
   }
 
+  renderBoxes = () => {
+    return Array(this.state.count * 200).fill(null).map((item, index) => {
+      return <div key={index} className="box">{index}</div>
+    })
+  }
+
+  onClickCount = () => {
+    this.setState(
+      (state) => { return { count: state.count + 1 } },
+    );
+    this.setState((state) => { return { count: state.count + 1 } });
+    this.setState((state) => { return { count: state.count + 1 } });
+  }
+
   onClickCounter = () => {
-    this.setState({ count: this.state.count + 1 })
+    // this.setState({ count: this.state.count + 1 });
+    // this.setState({ count: this.state.count + 1 });
+    // this.setState({ count: this.state.count + 1 });
+
+    setTimeout(() => {
+      this.setState({ count: this.state.count + 1 });
+      this.setState({ count: this.state.count + 1 });
+      this.setState({ count: this.state.count + 1 });
+    }, 500);
+
+    // this.setState(
+    //   (state) => { return { count: state.count + 1 } },
+    //   () => { console.log('updateA') },
+    // );
+    // this.setState((state) => { return { count: state.count + 1 } });
+    // this.setState((state) => { return { count: state.count + 1 } });
   }
 }
 
