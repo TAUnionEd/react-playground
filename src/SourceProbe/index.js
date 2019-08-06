@@ -29,32 +29,69 @@ class SourceProbe extends Component {
     })
   }
 
-  onClickCount = () => {
-    this.setState(
-      (state) => { return { count: state.count + 1 } },
-    );
+  onClickForFunctionArg = () => {
+    this.setState((state) => { return { count: state.count + 1 } });
     this.setState((state) => { return { count: state.count + 1 } });
     this.setState((state) => { return { count: state.count + 1 } });
   }
 
-  onClickCounter = () => {
-    // this.setState({ count: this.state.count + 1 });
-    // this.setState({ count: this.state.count + 1 });
-    // this.setState({ count: this.state.count + 1 });
+  onClickForPromise = async () => {
+    let resolveSomethingDone, rejectSomethingDone;
+    const somethingDonePromise = new Promise((resolve, reject) => {
+      resolveSomethingDone = resolve;
+      rejectSomethingDone = reject;
+    });
 
+    this.setState({ count: this.state.count + 1 });
+    setTimeout(() => {
+      resolveSomethingDone();
+    }, 1000);
+
+    await somethingDonePromise;
+
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  onClickForSetStateInCallback = () => {
+    this.setState(
+      { count: this.state.count + 1 },
+      () => { this.setState({ count: this.state.count + 1 }); },
+    );
+  }
+
+  onClickForMultiSetStateA = () => {
+    this.setState({ count: this.state.count + 1 });
+    this.setState({ count: this.state.count + 1 });
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  onClickForMultiSetStateB = () => {
     setTimeout(() => {
       this.setState({ count: this.state.count + 1 });
       this.setState({ count: this.state.count + 1 });
       this.setState({ count: this.state.count + 1 });
     }, 500);
-
-    // this.setState(
-    //   (state) => { return { count: state.count + 1 } },
-    //   () => { console.log('updateA') },
-    // );
-    // this.setState((state) => { return { count: state.count + 1 } });
-    // this.setState((state) => { return { count: state.count + 1 } });
   }
+
+  onClickForMultiSetStateC = () => {
+    this.setState((state) => { return { count: state.count + 1 } });
+    this.setState((state) => { return { count: state.count + 1 } });
+    this.setState((state) => { return { count: state.count + 1 } });
+  }
+
+  onClickForMultiSetStateWithCallback = () => {
+    this.setState(
+      (state) => { return { count: state.count + 1 } },
+      () => { console.log('updateA') },
+    );
+    this.setState((state) => { return { count: state.count + 1 } });
+    this.setState(
+      (state) => { return { count: state.count + 1 } },
+      () => { console.log('updateC') },
+    );
+  }
+
+  onClickCounter = onClickForSetStateInCallback
 }
 
 export default SourceProbe;
